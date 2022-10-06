@@ -7,11 +7,11 @@ import { RolllStateType } from "shared/models/roll"
 
 interface Props {
   stateList: StateList[]
-  onItemClick?: (type: ItemType) => void
+  onItemClick?: (type: RolllStateType | "all") => void
   size?: number
 }
 export const RollStateList: React.FC<Props> = ({ stateList, size = 14, onItemClick }) => {
-  const onClick = (type: ItemType) => {
+  const onClick = (type: RolllStateType | "all") => {
     if (onItemClick) {
       onItemClick(type)
     }
@@ -28,7 +28,6 @@ export const RollStateList: React.FC<Props> = ({ stateList, size = 14, onItemCli
             </S.ListItem>
           )
         }
-
         return (
           <S.ListItem key={i}>
             <RollStateIcon type={s.type} size={size} onClick={() => onClick(s.type)} />
@@ -56,8 +55,7 @@ const S = {
     }
   `,
 }
-
-interface StateList {
+export interface StateList {
   type: ItemType
   count: number
 }
