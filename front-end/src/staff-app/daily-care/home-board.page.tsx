@@ -55,7 +55,7 @@ export const HomeBoardPage: React.FC = () => {
   const [filterByAttendance, setFilterByAttendance] = useState<RolllStateType | "all">("all")
   const [users, setUsers] = useState<Person[] | undefined>([])
   const [getStudents, data, loadState] = useApi<{ students: Person[] }>({ url: "get-homeboard-students" })
-  const [saveActiveRoll, savedData, saveLoader] = useApi<{ students: Person[] }>({ url: "save-roll" })
+  const [saveActiveRoll, savedData, saveLoader] = useApi<{ success: boolean }>({ url: "save-roll" })
 
   useEffect(() => {
     void getStudents()
