@@ -46,6 +46,7 @@ export const ActivityPage: React.FC = () => {
             }
           }).map((s) =>
             <RollNumberTile id={s.entity.id}
+              key={s.entity.id}
               name={s.entity.name}
               onClick={() => setRoll(s.entity)}
               roll={roll}
